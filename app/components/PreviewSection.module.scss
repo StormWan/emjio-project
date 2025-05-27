@@ -1,0 +1,70 @@
+.previewSection {
+    border-top: 1px solid #e1e5e9;
+    padding-top: 40px;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #333;
+    }
+}
+
+.processing {
+    text-align: center;
+    padding: 40px;
+    color: #6c757d;
+}
+
+.emojiGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.emojiItem {
+    text-align: center;
+    padding: 16px;
+    border: 2px solid #f8f9fa;
+    border-radius: 12px;
+    transition: all 0.3s;
+
+    &:hover {
+        border-color: #4facfe;
+        transform: translateY(-4px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 8px;
+    }
+
+    span {
+        display: block;
+        font-size: 14px;
+        color: #333;
+        font-weight: 500;
+    }
+}
+
+.downloadButton {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: block;
+    margin: 0 auto;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+    }
+}

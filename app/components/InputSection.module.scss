@@ -1,0 +1,129 @@
+.inputSection {
+    margin-bottom: 40px;
+}
+
+.subjectInput {
+    margin-bottom: 30px;
+
+    label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #333;
+    }
+
+    textarea {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #e1e5e9;
+        border-radius: 8px;
+        font-size: 14px;
+        resize: vertical;
+        transition: border-color 0.3s;
+
+        &:focus {
+            outline: none;
+            border-color: #4facfe;
+        }
+    }
+}
+
+.keywordsInput {
+    margin-bottom: 30px;
+}
+
+.keywordsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+
+    label {
+        font-weight: 600;
+        color: #333;
+    }
+}
+
+.fillButton {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+        background: #e9ecef;
+    }
+}
+
+.keywordsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.keywordItem {
+    input {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #e1e5e9;
+        border-radius: 6px;
+        font-size: 14px;
+        transition: border-color 0.3s;
+
+        &:focus {
+            outline: none;
+            border-color: #4facfe;
+        }
+    }
+}
+
+.guidance {
+    background: #f8f9fa;
+    border-left: 4px solid #4facfe;
+    padding: 12px 16px;
+    margin-top: 12px;
+    border-radius: 0 6px 6px 0;
+
+    p {
+        margin: 0;
+        font-size: 13px;
+        color: #6c757d;
+        line-height: 1.5;
+    }
+}
+
+.error {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    border: 1px solid #f5c6cb;
+}
+
+.generateButton {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 100%;
+
+    &:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3);
+    }
+
+    &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+}
