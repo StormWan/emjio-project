@@ -1,0 +1,109 @@
+.modeSelector {
+    margin-bottom: 30px;
+}
+
+.label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #333;
+    font-size: 16px;
+}
+
+.modesContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.modeCard {
+    border: 2px solid #e1e5e9;
+    border-radius: 12px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: white;
+    position: relative;
+
+    &:hover {
+        border-color: #4facfe;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(79, 172, 254, 0.15);
+    }
+
+    &.selected {
+        border-color: #4facfe;
+        background: #f8fcff;
+        box-shadow: 0 4px 12px rgba(79, 172, 254, 0.2);
+    }
+}
+
+.radioButton {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+
+    input[type="radio"] {
+        width: 20px;
+        height: 20px;
+        accent-color: #4facfe;
+    }
+}
+
+.modeInfo {
+    h3 {
+        margin: 0 0 8px 0;
+        font-size: 18px;
+        color: #333;
+        font-weight: 600;
+    }
+
+    p {
+        margin: 0;
+        font-size: 14px;
+        color: #6c757d;
+        line-height: 1.4;
+    }
+}
+
+.albumCountSelector {
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+
+    label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 12px;
+        color: #333;
+        font-size: 14px;
+    }
+}
+
+.countOptions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.countButton {
+    background: white;
+    border: 2px solid #e1e5e9;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        border-color: #4facfe;
+    }
+
+    &.active {
+        background: #4facfe;
+        border-color: #4facfe;
+        color: white;
+    }
+}

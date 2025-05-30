@@ -5,62 +5,96 @@
 .subjectInput {
     margin-bottom: 30px;
 
-    label {
-        display: block;
-        font-weight: 600;
-        margin-bottom: 8px;
-        color: #333;
+    .subjectHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+
+        label {
+            font-weight: 600;
+            color: #333;
+            font-size: 16px;
+        }
     }
 
     textarea {
         width: 100%;
-        padding: 12px;
+        padding: 12px 16px;
         border: 2px solid #e1e5e9;
         border-radius: 8px;
         font-size: 14px;
         resize: vertical;
-        transition: border-color 0.3s;
+        min-height: 80px;
+        font-family: inherit;
+        transition: border-color 0.3s ease;
 
         &:focus {
             outline: none;
             border-color: #4facfe;
         }
+
+        &::placeholder {
+            color: #a0a0a0;
+        }
+    }
+}
+
+.inspirationButton {
+    background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(255, 216, 155, 0.4);
     }
 }
 
 .keywordsInput {
     margin-bottom: 30px;
-}
 
-.keywordsHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
+    .keywordsHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
 
-    label {
-        font-weight: 600;
-        color: #333;
+        label {
+            font-weight: 600;
+            color: #333;
+            font-size: 16px;
+        }
     }
 }
 
 .fillButton {
-    background: #f8f9fa;
-    border: 1px solid #dee2e6;
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 16px;
     border-radius: 6px;
-    padding: 6px 12px;
-    font-size: 12px;
+    font-size: 14px;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
 
     &:hover {
-        background: #e9ecef;
+        background: #218838;
+        transform: translateY(-1px);
     }
 }
 
 .keywordsGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
     gap: 12px;
     margin-bottom: 16px;
 }
@@ -68,15 +102,21 @@
 .keywordItem {
     input {
         width: 100%;
-        padding: 10px;
+        padding: 10px 12px;
         border: 2px solid #e1e5e9;
         border-radius: 6px;
         font-size: 14px;
-        transition: border-color 0.3s;
+        text-align: center;
+        transition: border-color 0.3s ease;
 
         &:focus {
             outline: none;
             border-color: #4facfe;
+        }
+
+        &::placeholder {
+            color: #a0a0a0;
+            font-size: 12px;
         }
     }
 }
@@ -85,8 +125,8 @@
     background: #f8f9fa;
     border-left: 4px solid #4facfe;
     padding: 12px 16px;
-    margin-top: 12px;
     border-radius: 0 6px 6px 0;
+    margin-top: 12px;
 
     p {
         margin: 0;
@@ -99,31 +139,34 @@
 .error {
     background: #f8d7da;
     color: #721c24;
-    padding: 12px 16px;
-    border-radius: 6px;
-    margin-bottom: 16px;
     border: 1px solid #f5c6cb;
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    font-size: 14px;
 }
 
 .generateButton {
+    width: 100%;
     background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
     color: white;
     border: none;
     padding: 16px 32px;
-    border-radius: 8px;
-    font-size: 16px;
+    border-radius: 12px;
+    font-size: 18px;
     font-weight: 600;
     cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-    width: 100%;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3);
 
     &:hover:not(:disabled) {
         transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3);
+        box-shadow: 0 12px 35px rgba(79, 172, 254, 0.4);
     }
 
     &:disabled {
         opacity: 0.7;
         cursor: not-allowed;
+        transform: none;
     }
 }

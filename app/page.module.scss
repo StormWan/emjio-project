@@ -1,3 +1,73 @@
+.welcomeMain {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+}
+
+.welcomeMain.transitioning {
+    opacity: 0;
+    transform: scale(1.1);
+}
+
+.backgroundImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* 您后续可以替换为实际的背景图片 */
+    /* background-image: url('/assets/welcome-bg.png'); */
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+.contentArea {
+    text-align: center;
+    z-index: 1;
+    padding: 40px;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+}
+
+.startButton {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    border: none;
+    padding: 20px 40px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3);
+    min-width: 200px;
+
+    &:hover:not(:disabled) {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(79, 172, 254, 0.4);
+    }
+
+    &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+        transform: none;
+    }
+}
+
+/* 原有的样式保留，用于创作页面 */
 .main {
     min-height: 100vh;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);

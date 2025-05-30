@@ -1,4 +1,4 @@
 {
-  "/page": "app/page.js",
+  "/create/page": "app/create/page.js",
   "/api/generate-emojis/route": "app/api/generate-emojis/route.js"
 }

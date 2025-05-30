@@ -1,6 +1,10 @@
 'use client';
 
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
+import ModeSelector from './ModeSelector';
+import StyleSelector from './StyleSelector';
+import InspirationModal from './InspirationModal';
+import { getRandomKeywords } from '../constants/popularKeywords';
 import styles from './InputSection.module.scss';
 import React from 'react';
 
@@ -9,6 +13,12 @@ interface InputSectionProps {
     setSubjectDescription: Dispatch<SetStateAction<string>>;
     keywords: string[];
     setKeywords: Dispatch<SetStateAction<string[]>>;
+    selectedStyle: string;
+    setSelectedStyle: Dispatch<SetStateAction<string>>;
+    selectedMode: string;
+    setSelectedMode: Dispatch<SetStateAction<string>>;
+    albumCount: number;
+    setAlbumCount: Dispatch<SetStateAction<number>>;
     onGenerate: () => void;
     isLoading: boolean;
     error: string;
@@ -19,10 +29,18 @@ export default function InputSection({
     setSubjectDescription,
     keywords,
     setKeywords,
+    selectedStyle,
+    setSelectedStyle,
+    selectedMode,
+    setSelectedMode,
+    albumCount,
+    setAlbumCount,
     onGenerate,
     isLoading,
     error
 }: InputSectionProps) {
+
+    const [isInspirationModalOpen, setIsInspirationModalOpen] = useState(false);
 
     const handleKeywordChange = (index: number, value: string) => {
         const newKeywords = [...keywords];
@@ -30,29 +48,46 @@ export default function InputSection({
         setKeywords(newKeywords);
     };
 
-    // const popularKeywords = [
-    //     '开心大笑', '思考人生', '震惊', '委屈', '加油', '疑问',
-    //     '生气', '哭泣', '睡觉', '吃饭', '工作', '放松',
-    //     '惊喜', '无语', '点赞', '比心'
-    // ];
-    const popularKeywords = [
-        '点赞', '比心'
-    ];
-
-    const fillPopularKeywords = () => {
-        setKeywords([...popularKeywords]);
+    const fillRandomKeywords = () => {
+        const count = selectedMode === 'single' ? 1 : albumCount;
+        const randomKeywords = getRandomKeywords(count);
+        setKeywords(randomKeywords);
     };
+
+    const handleInspirationSelect = (suggestion: string) => {
+        setSubjectDescription(suggestion);
+    };
+
+    const currentKeywordCount = selectedMode === 'single' ? 1 : albumCount;
 
     return (
         <div className={styles.inputSection}>
+            {/* 模式选择器 */}
+            <ModeSelector
+                selectedMode={selectedMode}
+                onModeChange={setSelectedMode}
+                albumCount={albumCount}
+                onAlbumCountChange={setAlbumCount}
+            />
+
+            {/* 主体描述输入 */}
             <div className={styles.subjectInput}>
-                <label htmlFor="subject">表情包主体描述</label>
+                <div className={styles.subjectHeader}>
+                    <label htmlFor="subject">表情包主体描述</label>
+                    <button
+                        type="button"
+                        onClick={() => setIsInspirationModalOpen(true)}
+                        className={styles.inspirationButton}
+                    >
+                        💡 需要灵感？
+                    </button>
+                </div>
                 <textarea
                     id="subject"
                     value={subjectDescription}
                     onChange={(e) => setSubjectDescription(e.target.value)}
-                    placeholder="例如：简单背景，穿着黑色短袖的男人"
-                    maxLength={50}
+                    placeholder="例如：一只胖嘟嘟的橘色小猫咪，戴着蓝色蝴蝶结"
+                    maxLength={100}
                     rows={3}
                 />
                 <div className={styles.guidance}>
@@ -60,15 +95,24 @@ export default function InputSection({
                 </div>
             </div>
 
+            {/* 风格选择器 */}
+            <StyleSelector
+                selectedStyle={selectedStyle}
+                onStyleChange={setSelectedStyle}
+            />
+
+            {/* 关键词输入 */}
             <div className={styles.keywordsInput}>
                 <div className={styles.keywordsHeader}>
-                    <label>16个关键词描述</label>
+                    <label>
+                        {selectedMode === 'single' ? '1个关键词描述' : `${currentKeywordCount}个关键词描述`}
+                    </label>
                     <button
                         type="button"
-                        onClick={fillPopularKeywords}
+                        onClick={fillRandomKeywords}
                         className={styles.fillButton}
                     >
-                        使用热门关键词
+                        随机填充关键词
                     </button>
                 </div>
 
@@ -80,14 +124,14 @@ export default function InputSection({
                                 value={keyword}
                                 onChange={(e) => handleKeywordChange(index, e.target.value)}
                                 placeholder={`关键词 ${index + 1}`}
-                                maxLength={5}
+                                maxLength={4}
                             />
                         </div>
                     ))}
                 </div>
 
                 <div className={styles.guidance}>
-                    <p>请填写与表情包情感或动作相关的词语，例如'开心大笑'、'思考人生'、'震惊得说不出话'。请避免使用过于抽象或复杂的词语，确保每个词语都能清晰表达一种情绪或动作。</p>
+                    <p>请填写与表情包情感或动作相关的词语，例如'开心'、'思考'、'震惊'。每个词语不超过4个字，确保每个词语都能清晰表达一种情绪或动作。</p>
                 </div>
             </div>
 
@@ -100,6 +144,13 @@ export default function InputSection({
             >
                 {isLoading ? '生成中...' : '生成表情包'}
             </button>
+
+            {/* 灵感建议弹窗 */}
+            <InspirationModal
+                isOpen={isInspirationModalOpen}
+                onClose={() => setIsInspirationModalOpen(false)}
+                onSelectSuggestion={handleInspirationSelect}
+            />
         </div>
     );
 } 
