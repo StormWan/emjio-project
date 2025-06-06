@@ -1,0 +1,44 @@
+.progressSteps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    margin-bottom: 1rem;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+}
+
+.progressBar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+.progressLine {
+    flex: 1;
+    height: 4px;
+    background-color: var(--light-gray);
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.progressFill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+    transition: width var(--transition-normal);
+}
+
+.stepIndicator {
+    margin-left: 1rem;
+    font-size: 0.875rem;
+    color: var(--dark-gray);
+    font-weight: 600;
+}
+
+.currentStep {
+    color: var(--primary-color);
+} 

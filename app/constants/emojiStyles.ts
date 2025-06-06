@@ -26,7 +26,6 @@ export const EMOJI_STYLES: EmojiStyle[] = [
         id: 'festival-special',
         name: '粗线条',
         description: '粗线条',
-        // prompt: '艺术家Yeoniu Choi风格，简笔画，卡通，粗线条勾勒，((简笔画))，卡通，((粗线条勾勒))，干净的背景，彩色的画面',
         prompt: '艺术家Yeoniu Choi风格，简笔画，卡通，粗线条勾勒，像梵高先生的最新简约风，简笔画漫画，',
         thumbnail: '/assets/styles/04.png'
     },

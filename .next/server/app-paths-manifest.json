@@ -1,4 +1,6 @@
 {
-  "/create/page": "app/create/page.js",
-  "/api/generate-emojis/route": "app/api/generate-emojis/route.js"
+  "/not-found": "app/not-found.js",
+  "/api/generate-emojis/route": "app/api/generate-emojis/route.js",
+  "/page": "app/page.js",
+  "/create/page": "app/create/page.js"
 }

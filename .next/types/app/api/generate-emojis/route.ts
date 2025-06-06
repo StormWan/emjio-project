@@ -1,4 +1,4 @@
-// File: F:\emjio\app\api\generate-emojis\route.ts
+// File: /Users/wan/Downloads/code/emjio-project/app/api/generate-emojis/route.ts
 import * as entry from '../../../../../app/api/generate-emojis/route.js'
 import type { NextRequest } from 'next/server.js'
 

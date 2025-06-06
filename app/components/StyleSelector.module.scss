@@ -1,91 +1,116 @@
 .styleSelector {
-    margin-bottom: 30px;
+    margin-bottom: 2rem;
 }
 
 .label {
-    display: block;
+    font-size: 1.125rem;
     font-weight: 600;
-    margin-bottom: 16px;
-    color: #333;
-    font-size: 16px;
+    color: var(--dark-gray);
+    margin-bottom: 1rem;
+    display: block;
 }
 
 .stylesGrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 16px;
+    gap: 1.5rem;
 }
 
 .styleCard {
-    border: 2px solid #e1e5e9;
-    border-radius: 12px;
-    padding: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    background: white;
     position: relative;
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    border: 2px solid transparent;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
 
     &:hover {
-        border-color: #4facfe;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(79, 172, 254, 0.15);
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
     }
 
     &.selected {
-        border-color: #4facfe;
-        background: #f8fcff;
-        box-shadow: 0 4px 12px rgba(79, 172, 254, 0.2);
+        border-color: var(--primary-color);
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-4px);
+
+        &::before {
+            content: '✓';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 24px;
+            height: 24px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            font-weight: bold;
+        }
     }
 }
 
 .thumbnail {
     width: 100%;
-    height: 120px;
+    height: 180px;
     border-radius: 8px;
     overflow: hidden;
-    margin-bottom: 12px;
-    background: #f8f9fa;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-bottom: 1rem;
+    background: var(--light-gray);
+    position: relative;
 
     img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        transition: transform var(--transition-normal);
     }
-}
 
-.placeholder {
-    color: #6c757d;
-    font-size: 14px;
-    text-align: center;
+    .placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--dark-gray);
+        font-size: 0.875rem;
+        opacity: 0.7;
+    }
 }
 
 .styleInfo {
     h3 {
-        margin: 0 0 8px 0;
-        font-size: 16px;
-        color: #333;
+        font-size: 1.125rem;
         font-weight: 600;
+        color: var(--dark-gray);
+        margin-bottom: 0.5rem;
     }
 
     p {
-        margin: 0;
-        font-size: 13px;
-        color: #6c757d;
-        line-height: 1.4;
+        font-size: 0.875rem;
+        color: var(--dark-gray);
+        opacity: 0.8;
+        line-height: 1.5;
     }
 }
 
 .radioButton {
     position: absolute;
-    top: 12px;
-    right: 12px;
+    opacity: 0;
+    width: 0;
+    height: 0;
 
-    input[type="radio"] {
-        width: 20px;
-        height: 20px;
-        accent-color: #4facfe;
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
     }
 }

@@ -1,4 +1,4 @@
-// File: F:\emjio\app\layout.tsx
+// File: /Users/wan/Downloads/code/emjio-project/app/layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
